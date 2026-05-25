@@ -1,6 +1,6 @@
 # Telos
 
-Sistema de peticionamento automatizado para o contencioso trabalhista da União, com triagem inteligente, geração assistida por IA e revisão humana antes do protocolo.
+Sistema de peticionamento automatizado para o contencioso trabalhista no âmnbito da PGFN, com triagem inteligente, geração assistida por IA e revisão humana antes do protocolo.
 
 ---
 
