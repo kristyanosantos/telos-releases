@@ -1,6 +1,6 @@
 # Telos
 
-Sistema de peticionamento automatizado para o contencioso trabalhista no âmnbito da PGFN, com triagem inteligente, geração assistida por IA e revisão humana antes do protocolo.
+Sistema de peticionamento automatizado para o contencioso trabalhista no âmbito da PGFN, com triagem inteligente, geração assistida por IA e revisão humana antes do protocolo.
 
 ---
 
@@ -57,6 +57,24 @@ O Telos é uma ferramenta pessoal desenvolvida por um procurador para uso própr
 - **Sem coleta de dados:** nenhum dado de processo ou credencial é enviado para servidores externos além dos provedores configurados pelo próprio usuário (Google Cloud, Anthropic, PJe, SAJ).
 - **Revisão humana obrigatória:** todas as minutas geradas pela IA passam por revisão antes de qualquer ato processual.
 - **Suas credenciais ficam no seu PC:** chaves de API, tokens e configurações pessoais são armazenadas localmente, nunca compartilhadas.
+- **Seus dados não treinam IA:** ao seguir a configuração recomendada (Vertex AI + API da Anthropic), os autos, minutas e diretrizes que passam pelo Telos não são usados como material de treinamento pelos provedores.
+
+<details>
+<summary><strong>▸ Os dados dos processos são usados para treinar a IA? (resposta detalhada)</strong></summary>
+
+<br>
+
+**Não**, desde que você siga a configuração inicial recomendada (Vertex AI via Google Cloud + API da Anthropic via Console). As duas vias têm políticas explícitas de não-treinamento com dados de clientes em uso comercial:
+
+- **Vertex AI (Google):** a política do Google Cloud é clara — dados de clientes (prompts, respostas, anexos) não são usados para treinar os modelos foundation do Gemini. É um compromisso contratual do *Cloud Data Processing Addendum*. Mais detalhes no [whitepaper de privacidade do Google Cloud](https://services.google.com/fh/files/misc/genai_privacy_google_cloud.pdf).
+
+- **Anthropic via API (Console):** uso comercial via API segue os *Commercial Terms of Service*, que proíbem o uso dos dados para treinamento, sem opção de opt-in. É política distinta (e mais protegida) dos planos consumer do Claude.ai. A retenção padrão dos logs de API é curta (até 30 dias para *abuse-checking*).
+
+Ou seja: enquanto você usar as APIs como recomendado, os autos, minutas e diretrizes que passam pelo Telos não viram material de treino.
+
+> **Importante:** esta resposta é a melhor leitura das políticas dos provedores no momento da redação deste documento. Políticas mudam; se isso é crítico para o seu uso, confira diretamente os termos atuais nos consoles antes de tomar decisões.
+
+</details>
 
 ---
 
